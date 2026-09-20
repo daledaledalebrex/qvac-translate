@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cebuano ⇄ Tagalog Offline Translator</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>🌐 Cebuano ⇄ Tagalog</h1>
+      <p class="subtitle">Runs 100% on this device with <a href="https://github.com/tetherto/qvac" target="_blank" rel="noopener">QVAC</a>. No internet needed after the model downloads. No text ever leaves your machine.</p>
+    </header>
+
+    <div id="status" class="status">Checking model status…</div>
+
+    <div class="controls">
+      <button id="swap" title="Swap languages">⇄</button>
+      <div class="lang-labels">
+        <span id="fromLabel">Cebuano</span>
+        <span>→</span>
+        <span id="toLabel">Tagalog</span>
+      </div>
+    </div>
+
+    <textarea id="input" rows="5" placeholder="Type Cebuano text here..."></textarea>
+
+    <button id="translateBtn">Translate</button>
+
+    <label class="output-label">Translation</label>
+    <textarea id="output" rows="5" readonly placeholder="Translation will appear here..."></textarea>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
