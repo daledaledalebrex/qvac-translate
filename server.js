@@ -12,16 +12,12 @@
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { plugins } from "@qvac/bare-sdk";
-import { llmPlugin } from "@qvac/bare-sdk/llamacpp-completion/plugin";
-import { QWEN3_1_7B_INST_Q4 } from "@qvac/bare-sdk/models";
+import { loadModel, unloadModel, completion, QWEN3_1_7B_INST_Q4 } from "@qvac/sdk";
 
-// Register ONLY the LLM plugin. This app doesn't need ASR/TTS/OCR/etc., and
-// registering just what we use avoids loading native addons (like the ASR
-// engine, which needs Vulkan) that many containers/CI environments don't
-// have the system libraries for.
-const sdk = plugins([llmPlugin]);
-const { loadModel, unloadModel, completion } = sdk;
+// Which built-in plugins the worker loads is controlled by qvac.config.json
+// in the project root (set to only the LLM plugin). This is what avoids
+// pulling in the ASR addon, which needs Vulkan and isn't available in many
+// containers/CI environments (including plain GitHub Codespaces).
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
