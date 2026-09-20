@@ -23,7 +23,7 @@ Translation quality reflects how well the base model was trained on Cebuano, whi
 - ~2–3 GB free disk space for the model (downloaded once, cached afterward)
 - No GPU required — this runs fine on CPU, though a GPU will speed it up
 
-This app uses `@qvac/bare-sdk` with only the LLM plugin registered, instead of the full `@qvac/sdk`. The full SDK's default worker loads every built-in addon (ASR, TTS, OCR, etc.) at startup, and some of those have native dependencies (e.g. the ASR addon needs Vulkan) that many containers — including plain GitHub Codespaces — don't ship. Registering just the LLM plugin avoids touching those addons entirely, so this runs cleanly in minimal/CI environments as well as on a full desktop.
+This app uses `@qvac/sdk` with only the LLM plugin registered, instead of the full `@qvac/sdk`. The full SDK's default worker loads every built-in addon (ASR, TTS, OCR, etc.) at startup, and some of those have native dependencies (e.g. the ASR addon needs Vulkan) that many containers — including plain GitHub Codespaces — don't ship. Registering just the LLM plugin avoids touching those addons entirely, so this runs cleanly in minimal/CI environments as well as on a full desktop.
 
 ## Setup
 
